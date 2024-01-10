@@ -2,6 +2,7 @@
 // Should the shuttle have launched? 
 // Did it?
 // Do not worry about fixing the code yet, we will do that in the next series of exercises.
+// ANSWER: Yes, it launched, despite the warning printed! Watch out pirates, you're in danger!
 
 let launchReady = false;
 let fuelLevel = 17000;
