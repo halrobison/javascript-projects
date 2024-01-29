@@ -1,5 +1,5 @@
 function removeI(arr) {
-    if (/* Enter base case test here */){
+    if (arr.indexOf('i') === -1){
       return arr;
     } else {
       arr.splice(arr.indexOf('i'),1);
@@ -10,3 +10,5 @@ function removeI(arr) {
 let arrayToChange = ['One', 'i', 'c', 'X', 'i', 'i', 54];
 
 console.log(removeI(arrayToChange));
+
+// in line 2, !arr.includes('i') also works.

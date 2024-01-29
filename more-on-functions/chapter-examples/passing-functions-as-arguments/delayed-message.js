@@ -1,5 +1,5 @@
 function printMessage() {
-    console.log("The future is now!");
+    console.log("Go Chiefs!");
 }
 
 setTimeout(printMessage, 5000);
