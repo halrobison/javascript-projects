@@ -21,7 +21,7 @@ function holdStatus(arr){
 let fuelLevel = 200000;
 let cargoHold = ['meal kits', 'space suits', 'first-aid kit', 'satellite', 'gold', 'water', 'AE-35 unit'];
 
-let nothingToSeeHere = function(a) {
+let fuelShift = function(a) {
   if (checkFuel(a) === 'green') {
      return a - 100001;
   }
@@ -33,22 +33,20 @@ let nothingToSeeHere = function(a) {
   }
 };
 
-let allGoodThings = function(a) {
-  array.splice(4, 3, 'pyrite', 'water', 'ball of yarn');
-  return array;
+let cargoShift = function(a) {
+  a.splice(4, 2, 'pyrite', 'water', 'AE-35 unit');
+  return a;
 }
-
-let fuelShift = nothingToSeeHere(fuelLevel)
-let holdShift = cargoHold.map(allGoodThings);
-
-console.log(fuelShift); 
-console.log(holdShift); 
-
-console.log(fuelLevel); 
-console.log(cargoHold);
 
 console.log("Fuel level: " + checkFuel(fuelLevel));
 console.log("Hold status: " + holdStatus(cargoHold));
+
+let irs = function (fuelLevel, cargoHold) {
+  let arr = cargoShift(cargoHold);
+  return `Raided ${fuelShift(fuelLevel)} kg of fuel and ${arr} from the hold.`
+}
+
+console.log(irs(fuelLevel, cargoHold));
 
 //Steal some fuel from the shuttle:
  
