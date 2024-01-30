@@ -8,6 +8,19 @@ function findMinValue(arr){
   return min;
 }
 
+//Recursive function attempt
+
+// function recursionFunc(sortedArray, array, findMinValue) {
+//   if (array.length === 0) {
+//     return sortedArray;
+//   } else {
+//     sortedArray =
+//   }
+// }
+
+let sortedArray = [];
+console.log(recursionFunc(sortedArray, array, findMinValue))
+
 //Create a function with an array of numbers as its parameter. This function will return a new array with the numbers sorted from least to greatest value.
 
 /*Within the function:

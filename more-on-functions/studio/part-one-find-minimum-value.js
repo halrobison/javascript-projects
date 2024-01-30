@@ -11,11 +11,9 @@ let minValue = function(array) {
 
 let sortArray = function(array2) {
     let sortedArray = [];
-    let i = 0;
-    while (i < array2.length) {
+    while (0 < array2.length) {
         sortedArray.push(minValue(array2));
-        let index = array2.indexOf(minValue(array2));
-        array2.splice(index, 1);
+        array2.splice(array2.indexOf(minValue(array2)), 1)
     }
     return sortedArray
 }
