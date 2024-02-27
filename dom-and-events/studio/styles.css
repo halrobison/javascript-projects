@@ -1,4 +1,4 @@
-#shuttleBackground {
+#shuttleBackground { 
     background-color: green;
     display: inline-block;
     height: 80%;
@@ -8,6 +8,10 @@
 
 #flightStatus {
     color: green;
+}
+
+#rocket {
+    position: absolute; 
 }
 
 #flightDisplay {
