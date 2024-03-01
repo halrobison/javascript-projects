@@ -4,45 +4,40 @@
 	<meta charset="utf-8">
 	<title>Search Engine Selector</title>
 	<script>
-		// TODO: create a handler
-    window.addEventListener("load", function(){
-        let formRef = document.getElementById("searchForm"); 
-		formRef.addEventListener("submit", formSubmit); 
-    });
+	function setSearchEngine(event) {
+		let selectedEngine = document.querySelector('input[name="engine"]:checked');
+		let engine = selectedEngine ? selectedEngine.value : null; 
 
-	function formSubmit() {
-		//window.alert("Form submitted!");
-
-		let selectedSearch = document.querySelector("input[name=engine]:checked")
-		let engine = selectedSearch ? selectedSearch.value: null;
 		if (!engine) {
-			alert('Please select a search engine.');
+			alert("Please select a search engine.");
 			return;
 		}
-		let searchTerm = document.querySelector('input[name="q"]').value;
+
+		let searchTerm = document.querySelector('input[name="q"]').value; 
 		if (!searchTerm) {
-			alert('Please enter a search term.'); 
-			return; 
+			alert("Please enter a search term."); 
+			return;
 		}
 
-		let form = document.querySelector("form")
-		let actionURL = actions[engine];
-		//window.alert("You selected a search engine: " + selectedSearch.value); 
+		let actions = {
+			"google": "https://www.google.com/search?q=",
+			"duckDuckGo": "https://duckduckgo.com/?q=",
+			"bing": "https://www.bing.com/search?q=",
+			"ask": "https://www.ask.com/web?q="
+		};
 
-	let actions = {
-    "Google": "https://www.google.com/",
-	'duckDuckGo': "https://duckduckgo.com/",
-	'Bing': "https://bing.com/search",
-	'Ask': "https://www.ask.com/web"
-	};
+		let actionURL = actions[engine]; 
 
-	for (name in actions) {
-		if (selectedSearch.value === action['keyname']) {
-			setAttribute(action, actions.selectedSearch)
-		}
+		let form = document.getElementById('searchForm'); 
+		form.setAttribute('action', actionURL); 
+
+		console.log('setSearchEngine function executed!')
 	}
 
-	};
+	window.addEventListener('load', function () {
+		let form = document.getElementById('searchForm'); 
+		form.addEventListener('submit', setSearchEngine);
+	})
 	</script>
 </head>
 
@@ -50,12 +45,15 @@
 
 	<form id="searchForm" action="" method="post">
     <!-- TODO: add form elements -->
+	<!-- Text input bar-->
 	<input type="text" name="q"/>
+	<!-- Search engines -->
 	<label>Google<input type="radio" name="engine" value="Google"/></label> 
 	<label>duckDuckGo<input type="radio" name="engine" value="duckDuckGo"/></label> 
 	<label>Bing<input type="radio" name="engine" value="Bing"/></label> 
 	<label>Ask<input type="radio" name="engine" value="Ask"/></label> 
-	<input type ="submit" name="submitbutton" value="Go!"/>
+	<!-- Submit button -->
+	<input type ="submit" value="Go!"/>
 	</form>
 
 </body>
