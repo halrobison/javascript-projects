@@ -15,6 +15,6 @@
     border-radius: 6px;
 }
 
-#activeStatus {
+.active {
     color: green;
 }
